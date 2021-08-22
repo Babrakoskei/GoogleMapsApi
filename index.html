@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add Map</title>
+    <style>
+      #map{
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+  </head>
+  <body>
+    <h1>Babra's Custom Google Maps</h1>
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+    // Initialize and add the map
+function initMap(){  // The location of Uluru
+  const uluru = { lat: 	-1.311752, lng: 	36.698598 };
+  var options = {
+    zoom: 9,
+    center: uluru
+  }
+  // The map, centered at Uluru
+  const map = new google.maps.Map(document.getElementById("map"),options)
+
+  const marker = new google.maps.Marker({
+    position: uluru,
+    map: map,
+  });
+  var infoWindow = new google.maps.infoWindow({
+    content: '<h1>Karen</h1>'
+  });
+  marker.addListener("click", function(){
+    infoWindow.open(map,marker);     
+  })
+}
+  // The marker, positioned at Uluru
+  
+
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1KDGDqgsgPTXskY17ACbnFSGtwRJQVh0&callback=initMap&libraries=&v=weekly"
+
+></script>
+  </body>
+</html>
+         
